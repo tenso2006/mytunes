@@ -31,6 +31,11 @@ var SongQueue = Backbone.Collection.extend({
   },
 
   dequeue: function (song) {
+    if (this.at(0) === song) {
+      this.playNext();
+    } else {
+      this.trigger('stop');
+    }
     this.remove(song);
   }
 });
