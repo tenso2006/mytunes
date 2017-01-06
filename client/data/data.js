@@ -21,3 +21,24 @@ var songData = [
     artist: 'Aaliyah',
   }
 ];
+Backbone.ajax({
+  url: 'https://api.parse.com/1/classes/songs/',
+  type: 'GET',
+  contentType: 'application/json',
+  success: function(data) {
+    //console.log(data);
+
+    for (var i = 0; i < data.results.length; i++) {
+      songData.push({
+        url: data.results[i].url,
+        title: data.results[i].title,
+        artist: data.results[i].artist
+      });
+    }
+
+  },
+  error: function(data) {
+    console.log('Sorry, it didn\'t work.');
+  }
+});
+

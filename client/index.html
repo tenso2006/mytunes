@@ -7,6 +7,7 @@
     <script src="bower_components/underscore/underscore.js"></script>
     <script src="bower_components/backbone/backbone.js"></script>
 
+    <script src="env/config.js"></script>
     <script src="data/data.js"></script>
 
     <script src="models/SongModel.js"></script>
@@ -25,6 +26,7 @@
       $(function() {
         // set up model objects
         var library = new Songs(songData);
+        //console.log(songData);
         //var songQueue = new SongQueue(songData);
         var app = new AppModel({library: library});
 
@@ -37,3 +39,4 @@
     </script>
   </body>
 </html>
+
